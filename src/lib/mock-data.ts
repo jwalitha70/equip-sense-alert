@@ -1,4 +1,3 @@
-
 import { subHours, addHours, format, subDays } from 'date-fns';
 
 // Define types
@@ -255,6 +254,57 @@ export const generateMockEquipment = (): Equipment[] => {
           warningHigh: 240,
         }
       ]
+    },
+    {
+      id: 'bore-001',
+      name: 'Index Bore System X1',
+      type: 'Bore',
+      status: 'healthy',
+      lastMaintenance: format(subDays(new Date(), 15), 'yyyy-MM-dd'),
+      nextMaintenance: format(addHours(new Date(), 480), 'yyyy-MM-dd'),
+      healthScore: 88,
+      location: 'Building X, Floor 1',
+      sensors: [
+        {
+          id: 'depth-001',
+          name: 'Bore Depth',
+          type: 'bore-depth',
+          value: 150.5,
+          unit: 'm',
+          min: 0,
+          max: 300,
+          criticalLow: 20,
+          criticalHigh: 280,
+          warningLow: 50,
+          warningHigh: 250,
+        },
+        {
+          id: 'pressure-bore-001',
+          name: 'Bore Pressure',
+          type: 'pressure',
+          value: 5.8,
+          unit: 'bar',
+          min: 0,
+          max: 10,
+          criticalLow: 1,
+          criticalHigh: 9,
+          warningLow: 2,
+          warningHigh: 8,
+        },
+        {
+          id: 'flow-001',
+          name: 'Flow Rate',
+          type: 'flow',
+          value: 42.3,
+          unit: 'L/min',
+          min: 0,
+          max: 100,
+          criticalLow: 10,
+          criticalHigh: 90,
+          warningLow: 20,
+          warningHigh: 80,
+        }
+      ]
     }
   ];
   
@@ -365,6 +415,16 @@ export const generateHistoricalSensorData = (
     case 'voltage':
       baseValue = 230;
       amplitude = 10;
+      break;
+    case 'bore-depth':
+      baseValue = 150;
+      amplitude = 5;
+      trend = -0.01;
+      break;
+    case 'flow':
+      baseValue = 45;
+      amplitude = 8;
+      trend = 0.02;
       break;
     default:
       baseValue = 50;
