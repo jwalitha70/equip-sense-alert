@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import StatusIndicator from "./StatusIndicator";
 import SensorChart from "./SensorChart";
-import { Clock, Settings, Tool, CalendarDays, MapPin } from "lucide-react";
+import { Clock, Settings, Wrench, CalendarDays, MapPin } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 
@@ -52,7 +52,7 @@ const EquipmentDetail = ({ equipment }: EquipmentDetailProps) => {
         <div className="flex items-center gap-2 mt-2 lg:mt-0">
           <StatusIndicator status={equipment.status} className="px-2 py-1 bg-white border rounded-md" />
           <Button variant="outline" size="sm" className="gap-1">
-            <Tool className="h-4 w-4 mr-1" />
+            <Wrench className="h-4 w-4 mr-1" />
             Schedule Maintenance
           </Button>
         </div>
@@ -226,7 +226,7 @@ const EquipmentDetail = ({ equipment }: EquipmentDetailProps) => {
               <div className="space-y-4">
                 <div className="flex items-start gap-4 border-b pb-4">
                   <div className="bg-blue-50 text-blue-600 rounded-full h-10 w-10 flex items-center justify-center shrink-0">
-                    <Tool className="h-5 w-5" />
+                    <Wrench className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="font-medium">Regular Maintenance</p>
@@ -237,7 +237,7 @@ const EquipmentDetail = ({ equipment }: EquipmentDetailProps) => {
                 
                 <div className="flex items-start gap-4 border-b pb-4">
                   <div className="bg-blue-50 text-blue-600 rounded-full h-10 w-10 flex items-center justify-center shrink-0">
-                    <Tool className="h-5 w-5" />
+                    <Wrench className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="font-medium">Preventive Maintenance</p>
